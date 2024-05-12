@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Pista</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div>
+
+    <div class="container">
+        <h2 class="mt-4 mb-3">Editar Pista</h2>
+        <form th:action="@{/pi/editar/{id}(id=${pista.id})}" th:object="${pista}" method="POST">
+            <input type="hidden" id="id" name="id" value="1">
+            <div class="form-group">
+                <label for="nombreCancion">Nombre de la pista:</label>
+                <input type="text" class="form-control" id="nombreCancion" name="nombreCancion"
+                       th:field="*{nombreCancion}" value="Nombre de la pista">
+            </div>
+            <div class="form-group">
+                <label for="nombreArtista">Nombre del artista:</label>
+                <input type="text" class="form-control" id="nombreArtista" name="nombreArtista"
+                       th:field="*{nombreArtista}" value="Nombre del artista">
+            </div>
+            <div class="form-group">
+                <label for="generoMusical">Genero musical:</label>
+                <input type="text" class="form-control" id="generoMusical" th:field="*{generoMusical}"
+                       name="generoMusical" value="Genero Músical">
+            </div>
+            <div class="form-group">
+                <label for="archivoMp3">Nombre del archivo:</label>
+                <input type="text" class="form-control" id="archivoMp3" th:field="*{archivoMp3}" name="archivoMp3"
+                       value="Nombre del archivo">
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

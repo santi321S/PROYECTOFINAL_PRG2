@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Pistas</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<header class="container">
+    <h1>Bienvenido a FORRESTM</h1>
+</header>
+<main class="container mt-4">
+    <section>
+        <form th:action="@{/pi/guardar}" th:object="${pista}" enctype="multipart/form-data" method="POST">
+            <div class="form-group">
+                <label for="nombreCancion">Nombre de la Pista:</label>
+                <input type="text" id="nombreCancion" th:field="*{nombreCancion}" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nombreArtista">Nombre del artista:</label>
+                <input type="text" id="nombreArtista" th:field="*{nombreArtista}" class="form-control" required></input>
+            </div>
+
+            <div class="form-group">
+                <label for="generoMusical">Tipo de Música:</label>
+                <input type="text" id="generoMusical" th:field="*{generoMusical}" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="archivo">Nombre del archivo:</label>
+                <input type="file" id="archivo" name="archivo" accept=".mp3">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </section>
+</main>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

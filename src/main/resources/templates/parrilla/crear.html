@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Parrilla</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<header class="container">
+    <h1>Bienvenido a FORRESTM</h1>
+</header>
+<main class="container mt-4">
+    <section>
+        <form th:action="@{/pa/guardar}" th:object="${parrilla}" method="POST">
+            <div class="form-group">
+                <label for="dia">Dia de la pista:</label>
+                <select id="dia" th:field="*{dia}" class="form-control" required>
+                    <option value="lunes">Lunes</option>
+                    <option value="martes">Martes</option>
+                    <option value="m6iércoles">Miércoles</option>
+                    <option value="jueves">Jueves</option>
+                    <option value="viernes">Viernes</option>
+                    <option value="sábado">Sábado</option>
+                    <option value="domingo">Domingo</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="turno">Turno de la pista:</label>
+                <input type="text" id="turno" th:field="*{turno}" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="emisora">Emisora:</label>
+                <select id="emisora" th:field="*{idEmisora}" class="form-control" required>
+                    <option th:each="emisora : ${listaEmisoras}" th:value="${emisora.getId()}"
+                            th:text="${emisora.nombreEmisora}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="pistas">Pista:</label>
+                <select id="pistas" th:field="*{idPistaMusical}" class="form-control" required>
+                    <option th:each="pista : ${listaPistas}" th:value="${pista.getId()}"
+                            th:text="${pista.nombreCancion}"></option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </section>
+</main>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

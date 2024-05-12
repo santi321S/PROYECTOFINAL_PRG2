@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar parrilla</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div>
+
+<div class="container">
+    <h2 class="mt-4 mb-3">Editar parrilla</h2>
+    <form th:action="@{/pa/editar/{id}(id=${parrilla.id})}" th:object="${parrilla}" method="POST">
+        <input type="hidden" id="id" name="id" value="1">
+        <div class="form-group">
+            <label for="dia">Dia de la pista:</label>
+            <select id="dia" th:field="*{dia}" class="form-control" required>
+                <option value="Lunes">Lunes</option>
+                <option value="Martes">Martes</option>
+                <option value="Miercoles">Miércoles</option>
+                <option value="Jueves">Jueves</option>
+                <option value="Viernes">Viernes</option>
+                <option value="Sabado">Sábado</option>
+                <option value="Domingo">Domingo</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="turno">Turno de la pista:</label>
+            <input type="text" id="turno" th:field="*{turno}" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    </form>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
